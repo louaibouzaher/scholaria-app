@@ -104,7 +104,7 @@ const SideBar = () => {
 
   const listOfRoutes: SideBarItem[] = [
     {
-      title: "My Drive",
+      title: "My Library",
       description: "Handle all your papers uploads.",
       id: "mydrive",
       route: "/mydrive",

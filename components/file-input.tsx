@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, DragEvent } from "react";
 import { SlCloudUpload } from "react-icons/sl";
 
-const FileInput: React.FC = () => {
+const FileInput: React.FC<{ onFileSelect: (file: File) => void }> = ({ onFileSelect }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [dragging, setDragging] = useState<boolean>(false);
 
@@ -9,6 +9,7 @@ const FileInput: React.FC = () => {
     const file = event.target.files?.[0];
     if (file && file.type === "application/pdf") {
       setSelectedFile(file);
+      onFileSelect(file);  // Triggering the callback when a file is selected
     } else {
       setSelectedFile(null);
       alert("Please select a PDF file.");
@@ -30,6 +31,7 @@ const FileInput: React.FC = () => {
     const file = event.dataTransfer.files[0];
     if (file && file.type === "application/pdf") {
       setSelectedFile(file);
+      onFileSelect(file);  // Triggering the callback when a file is dropped
     } else {
       setSelectedFile(null);
       alert("Please drop a PDF file.");
