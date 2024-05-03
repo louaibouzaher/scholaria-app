@@ -11,9 +11,11 @@ import { redirect } from "next/navigation";
 import { IWorkspace } from "@/models/workspace";
 import PaperGrid from "@/components/paper-grid";
 import { papers } from "@/data/papers";
+import { useSearch } from "@/contexts/search.context"; // Adjust the path as needed
 
 function SearchPage() {
   const { workspaces, selectedPapersIds, clearSelectedPapers } = useWorkspace();
+  const { searchQuery } = useSearch();
 
   const filtersRef = useRef<HTMLDivElement>(null);
   const sortRef = useRef<HTMLDivElement>(null);
@@ -164,7 +166,7 @@ function SearchPage() {
     <div className="w-full h-full p-6">
       <div className="flex justify-between">
         <div>
-          <div className="text-2xl font-bold">{`Search results`}</div>
+          <div className="text-2xl font-bold">{`Search results for '${searchQuery}'`}</div>
         </div>
         <div className="flex items-center gap-3">
           {selectedPapersIds.length > 0 && (

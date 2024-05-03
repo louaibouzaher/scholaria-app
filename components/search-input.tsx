@@ -5,17 +5,19 @@ import { CiSearch } from "react-icons/ci";
 import { useRouter } from "next/navigation"; //SImon Code
 
 const SearchInput = () => {
-  const { isSearchOverlayOpen, setIsSearchOverlayOpen } = useSearch();
-  const ref = useRef<HTMLInputElement>(null); // Specify HTMLInputElement type for ref
-
+  const { isSearchOverlayOpen, setIsSearchOverlayOpen, setSearchQuery } =
+    useSearch();
   const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>(null);
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Ensure you prevent the default form behavior
-    const searchQuery = inputRef.current?.value; // Safe access to the current input value
-    router.push("/search"); // Navigate to the search page
-    setIsSearchOverlayOpen(false); // Close the search overlay
+    event.preventDefault();
+    const query = ref.current?.value.trim();
+    if (query) {
+      setSearchQuery(query); // Update the search query in context
+      setIsSearchOverlayOpen(false);
+      router.push("/search");
+    }
   };
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const SearchInput = () => {
     >
       <div className="relative p-4 w-1/3 h-12 rounded-full bg-gray-100 flex justify-between items-center">
         <input
-          ref={inputRef}
+          ref={ref}
           placeholder="Search for a paper, author, or journal..."
           type="text"
           className="w-full appearance-none bg-gray-100 focus:appearance-none"
