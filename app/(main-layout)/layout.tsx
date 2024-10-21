@@ -1,4 +1,5 @@
 "use client";
+import InfoCard from "@/components/infocard";
 import SearchInput from "@/components/search-input";
 import SideBar from "@/components/sidebar";
 import { useSearch } from "@/contexts/search.context";
@@ -30,6 +31,7 @@ export default function MainLayout({
   return (
     <>
       <SideBar />
+      <InfoCard />
       <SearchInput />
       <div
         className={

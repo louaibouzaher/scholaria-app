@@ -253,12 +253,16 @@ function SearchPage() {
           </div>
         </div>
       </div>
-      {!isLoading && (
-        <PaperGrid
-          isSelectable={!isFilteringMode}
-          papers={isFilteringMode ? filtersResults : workspacePapers}
-        />
-      )}
+
+      <div style={{ width: "87%" }}>
+        {!isLoading && (
+          <PaperGrid
+            isSelectable={!isFilteringMode}
+            papers={isFilteringMode ? filtersResults : workspacePapers}
+          />
+        )}
+      </div>
+
       {isLoading && (
         <div className="flex justify-center items-center w-full h-96">
           <Loader />
