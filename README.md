@@ -97,7 +97,15 @@ _University bulk subscription:_ We aim to secure 12,500 users at €2/month to r
 
 ## Product Demo
 
+[![Watch the Demo](https://img.youtube.com/vi/Aa1jUi78i-Q/0.jpg)](https://www.youtube.com/watch?v=Aa1jUi78i-Q)
+
 Try ScholarIA in action! Experience the ease of managing your academic research with personalized recommendations and note-taking.
+
+---
+
+## Check Out the App
+
+Visit [ScholarIA App](https://scholaria-app.vercel.app/landing) to start using the app today!
 
 ---
 
